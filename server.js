@@ -49,11 +49,15 @@ app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+
 // Displays all tables
 app.get("/tables", function(req, res) {
     return res.json(tables);
 });
-
+// display reservations
+app.get("/api/reserve", function(req, res) {
+    return res.json(reservations);
+});
 /* // Displays a single character, or returns false
 app.get("/api/characters/:character", function(req, res) {
     var chosen = req.params.character;
