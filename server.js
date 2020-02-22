@@ -15,28 +15,13 @@ app.use(express.json());
 // array for customers  (DATA) : name,
 // , contact info: phone number, email, unique ID
 // =============================================================
-var customers = [{
-        routeName: "yoda",
-        name: "Yoda",
-        role: "Jedi Master",
-        age: 900,
-        forcePoints: 2000
-    },
-    {
-        routeName: "darthmaul",
-        name: "Darth Maul",
-        role: "Sith Lord",
-        age: 200,
-        forcePoints: 1200
-    },
-    {
-        routeName: "obiwankenobi",
-        name: "Obi Wan Kenobi",
-        role: "Jedi Master",
-        age: 55,
-        forcePoints: 1350
-    }
-];
+var reservations = [{
+    name: "",
+    phone: "",
+    email: "",
+    uniqueID: 0,
+
+}, ];
 // object, array, or variable for tables; five tables,
 
 //array or varible for new reservation
@@ -53,12 +38,12 @@ app.get("/", function(req, res) {
 });
 
 //add reservation
-app.get("/add", function(req, res) {
+app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 // Displays all tables
-app.get("/api/tables", function(req, res) {
+app.get("/tables", function(req, res) {
     return res.json(tables);
 });
 
@@ -82,20 +67,20 @@ app.get("/api/characters/:character", function(req, res) {
 // and a waitlist post route
 
 
-app.post("/api/characters", function(req, res) {
+app.post("/reserve", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var newCharacter = req.body;
+    var newReservation = req.body;
 
     // Using a RegEx Pattern to remove spaces from newCharacter
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
-    console.log(newCharacter);
+    console.log(newReservation);
 
-    characters.push(newCharacter);
+    reservations.push(newReservation);
 
-    res.json(newCharacter);
+    res.json(newReservation);
 });
 
 // Starts the server to begin listening
