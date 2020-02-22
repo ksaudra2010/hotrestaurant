@@ -37,7 +37,9 @@ var customers = [{
         forcePoints: 1350
     }
 ];
-// object, array, or variable for tables; five tables, seats per table 
+// object, array, or variable for tables; five tables,
+
+//array or varible for new reservation
 
 // if or switch statement when tables are full to move clients to waiting list
 // .map function with ternery operator
@@ -60,7 +62,7 @@ app.get("/api/tables", function(req, res) {
     return res.json(tables);
 });
 
-// Displays a single character, or returns false
+/* // Displays a single character, or returns false
 app.get("/api/characters/:character", function(req, res) {
     var chosen = req.params.character;
 
@@ -73,9 +75,13 @@ app.get("/api/characters/:character", function(req, res) {
     }
 
     return res.json(false);
-});
+}); */
 
-// Create New Characters - takes in JSON input
+// posting table data reserving - takes in JSON input
+
+// and a waitlist post route
+
+
 app.post("/api/characters", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
