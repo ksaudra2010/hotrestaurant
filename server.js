@@ -2,11 +2,14 @@
 // =============================================================
 var express = require("express");
 var path = require("path");
+var waitlist = require("./waitlist");
+var tables = require("./tables");
 
 // Sets up the Express App
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 3000;
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -23,13 +26,7 @@ var reservations = [{
 
 }, ];
 
-var waitlist = [{
-    name: "",
-    phone: "",
-    email: "",
-    uniqueId: 0,
-}, ];
-// object, array, or variable for tables; five tables,
+    // object, array, or variable for tables; five tables,
 
 //array or varible for new reservation
 
@@ -49,15 +46,19 @@ app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+// tables
+app.get("/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
 
 // Displays all tables
-app.get("/tables", function(req, res) {
+app.get("/api/tables", function(req, res) {
     return res.json(tables);
 });
 
 // display reservations
-app.get("/api/reserve", function(req, res) {
-    return res.json(reservations);
+app.get("/api/waitlist", function(req, res) {
+    return res.json(waitlist);
 });
 /* // Displays a single character, or returns false
 app.get("/api/characters/:character", function(req, res) {
@@ -79,7 +80,7 @@ app.get("/api/characters/:character", function(req, res) {
 // and a waitlist post route
 
 
-app.post("/reserve", function(req, res) {
+app.post("/api/tables", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newReservation = req.body;
@@ -90,7 +91,7 @@ app.post("/reserve", function(req, res) {
 
     console.log(newReservation);
 
-    reservations.push(newReservation);
+    tables.push(newReservation);
 
     res.json(newReservation);
 });
