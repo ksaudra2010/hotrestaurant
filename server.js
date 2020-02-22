@@ -54,6 +54,7 @@ app.get("/reserve", function(req, res) {
 app.get("/tables", function(req, res) {
     return res.json(tables);
 });
+
 // display reservations
 app.get("/api/reserve", function(req, res) {
     return res.json(reservations);
