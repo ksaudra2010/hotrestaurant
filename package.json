@@ -1,0 +1,28 @@
+{
+  "name": "hotrestaurant",
+  "version": "1.0.0",
+  "description": "reservation api with 5 tables",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksaudra2010/hotrestaurant.git"
+  },
+  "keywords": [
+    "reserve",
+    "tables"
+  ],
+  "author": "streamlineDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksaudra2010/hotrestaurant/issues"
+  },
+  "homepage": "https://github.com/ksaudra2010/hotrestaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}

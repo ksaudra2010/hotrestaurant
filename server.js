@@ -19,8 +19,15 @@ var reservations = [{
     name: "",
     phone: "",
     email: "",
-    uniqueID: 0,
+    uniqueId: 0,
 
+}, ];
+
+var waitlist = [{
+    name: "",
+    phone: "",
+    email: "",
+    uniqueId: 0,
 }, ];
 // object, array, or variable for tables; five tables,
 
