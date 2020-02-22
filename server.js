@@ -2,11 +2,14 @@
 // =============================================================
 var express = require("express");
 var path = require("path");
+var waitlist = require("./waitlist");
+var tables = require("./tables");
 
 // Sets up the Express App
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 3000;
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -23,19 +26,6 @@ var reservations = [{
 
 }, ];
 
-var waitlist = [{
-    name: "",
-    phone: "",
-    email: "",
-    uniqueId: 0,
-}, ];
-
-var tables = [{
-        name: "",
-        phone: "",
-        email: "",
-        uniqueId: 0,
-    }]
     // object, array, or variable for tables; five tables,
 
 //array or varible for new reservation
